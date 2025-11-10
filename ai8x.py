@@ -603,7 +603,7 @@ def _hist_hook(module, inp, output):
     if not hasattr(module, 'hist'):
         module.hist = []
     # dynamic histogram collection
-    hist = histogram(output.clone().detach().flatten(), bins=2048)
+    hist = histogram(output.clone().detach().flatten(), bins=4)
     module.hist.append(hist)
 
 

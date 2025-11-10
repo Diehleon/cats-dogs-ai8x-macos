@@ -1,0 +1,36 @@
+# policies/schedule-utensils.yaml
+
+# Specify dataset information
+dataset:
+  name: utensils
+  input: [3, 128, 128]
+  output: ['spoon', 'knife']
+
+# Specify model reference
+model:
+  name: ai85utensilsnet
+
+# Training settings
+training:
+  epochs: 10
+  optimizer: Adam
+  lr: 0.001
+  weight_decay: 0.0
+  batch_size: 256
+  deterministic: true
+
+# Learning rate schedulers
+lr_schedulers:
+  training_lr:
+    class: MultiStepLR
+    milestones: [3, 7]
+    gamma: 0.5
+
+# Policies / compression schedule
+policies:
+  - lr_scheduler:
+      instance_name: training_lr
+    starting_epoch: 0
+    ending_epoch: 10
+    frequency: 1
+  # You can add pruning / quantization policies here as needed

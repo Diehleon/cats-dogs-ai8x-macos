@@ -1,5 +1,5 @@
 ---
 #start epoch = 15% of total epochs
-start_epoch: 15
+start_epoch: 50
 weight_bits: 8
 shift_quantile: 1.0

@@ -1,0 +1,17 @@
+# policies/schedule-hammer_screwdriver.yaml
+
+lr_schedulers:
+  training_lr:
+    class: MultiStepLR
+    #30% 60% 90% 
+    milestones: [15, 30, 45] 
+    gamma: 0.5
+
+policies:
+  - lr_scheduler:
+      instance_name: training_lr
+    starting_epoch: 0
+    #total epoch
+    ending_epoch: 50
+    frequency: 1
+
